@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Pollo Loco 2</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.png">
+
+    <link rel="stylesheet" href="./style.css">
+    <script src="./js/script.js"></script>
+    <script src="./models/keyboard.class.js"></script>
+    <script src="./models/drawable-object.class.js"></script>
+    <script src="./models/movable-object.class.js"></script>
+    <script src="./models/background-object.class.js"></script>
+    <script src="./models/clouds.class.js"></script>
+    <script src="./models/pickable-object.class.js"></script>
+    <script src="./models/character.class.js"></script>
+    <script src="./models/chicken.class.js"></script>
+    <script src="./models/smallchicken.class.js"></script>
+    <script src="./models/endboss.class.js"></script>
+    <script src="./models/statusbar.class.js"></script>
+    <script src="./models/throwable-object.class.js"></script>
+    <script src="./models/level.class.js"></script>
+    <script src="./js/level1.js"></script>
+    <script src="./models/world.class.js"></script>    
+    <script src="./js/game.js"></script>
+</head>
+<body onload="init()" onclick="closeHelp()">
+    <h1>El Pollo Loco 2</h1>
+    <div class="game" id="game">
+        <div class="btnTop">
+            <button class="dev" onclick="showHelp(event)"><img class="showHelp" src="./img/question.ico" alt=""></button>
+            <button class="dev" onclick="switchMobile()">Mobile <img id="mobile" src="./img/switch_off.png" alt=""></button>
+            <button class="dev" onclick="switchDev()">DEV <img id="dev" src="./img/switch_off.png" alt=""></button>
+        </div>
+        
+        <canvas width="720" height="480" id="canvas">
+        </canvas>
+        <button id="startGame" onclick="startGame()">Start Game</button>
+                        
+        <div id="btnBottom" class="btnBottom d-none">
+            <div class="btnBottomLeft">
+                <button id="touchleft" onmousedown="keyLeft()" onmouseleave="keyLeftReset()" onmouseup="keyLeftReset()"><img src="./img/left.png" alt=""></button>
+                <button id="touchright" onmousedown="keyRight()" onmouseleave="keyRightReset()" onmouseup="keyRightReset()"><img src="./img/right.png" alt=""></button>
+            </div>
+            
+            <div class="btnBottomRight">
+                <button id="touchup" onmousedown="keyJump()" onmouseleave="keyJumpReset()" onmouseup="keyJumpReset()"><img  src="./img/up.png" alt=""></button>
+                <button id="touchthrow" onmousedown="keyThrow()" onmouseleave="keyThrowReset()" onmouseup="keyThrowReset()"><img  src="./img/throw.png" alt=""></button>
+            </div>
+            <div class="fakeOptions"></div>                    
+        </div>
+        
+        <div class="options">
+            <button id="fullscreen" class="d-none" onclick="switchFullscreen('game')"><img class="fullscreen" src="./img/fullscreen.ico" alt=""></button>
+            <button class="sound" onclick="switchSound()"><img id="sound" src="./img/sound-on.ico" alt=""></button>
+        </div>
+
+        <div id="help" class="d-none">
+            <button onclick="closeHelp()"><img class="x" src="./img/x.ico" alt=""></button>
+            <div class="orange">Use <img src="./img/left.png" alt=""> or Keyboard key <div class="yellow">LEFT</div> to walk left.</div> 
+            <div class="orange">Use <img src="./img/right.png" alt=""> or Keyboard key <div class="yellow">RIGHT</div> to walk right.</div> 
+            <div class="orange">Use <img src="./img/up.png" alt=""> or Keyboard key <div class="yellow">UP</div> to jump.</div> 
+            <div class="orange">Use <img src="./img/throw.png" alt=""> or Keyboard key <div class="yellow">D</div> to throw bottle.</div> 
+            <div class="orange">You only can throw a bottle if you picked up one or more.</div> 
+            <div class="orange">With <div class="yellow">Mobile</div> you can show the mobile buttons</div>
+            <div class="orange">With <div class="yellow">DEV</div> you can show the hitbox ingame</div>
+        </div>       
+
+    </div>  
+
+    <div id="message" class="d-none">
+        Please turn the device...
+    </div> 
+
+</body>
+</html>
